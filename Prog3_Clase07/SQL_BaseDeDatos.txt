@@ -1,0 +1,26 @@
+SQL
+Lenguaje declarativo
+INSERT INTO Persona (`Nombre`, `Clave`) VALUES ('Vanesa','vane24'), ('Claudio','Clau87')
+DELETE FROM `Persona` WHERE id = 1
+
+UPDATE `Persona` 
+SET Nombre = 'juanita'
+WHERE Nombre = 'Juanita'
+
+SELECT Id as Identificador 
+FROM `Persona`
+
+
+UPDATE persona 
+SET IdLocalidades = 2 
+WHERE Id IN (3,4) 
+
+SELECT * 
+FROM persona as P, localidades as L
+
+SELECT P.Nombre, L.Descripcion 
+FROM persona as P, localidades as L //devuelve el producto cartesiano de las dos tablas
+
+SELECT P.Nombre, L.Descripcion 
+FROM persona as P, localidades as L
+WHERE P.IdLocalidades = L.Id
