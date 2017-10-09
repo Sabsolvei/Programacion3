@@ -24,3 +24,98 @@ FROM persona as P, localidades as L //devuelve el producto cartesiano de las dos
 SELECT P.Nombre, L.Descripcion 
 FROM persona as P, localidades as L
 WHERE P.IdLocalidades = L.Id
+
+
+
+
+INSERT INTO
+    proveedores(
+        `Numero`,
+        `Nombre`,
+        `Domicilio`,
+        `Localidad`
+    )
+VALUES
+(100, 'Perez','Peron 876','Quilmes'),
+(101, 'Gimenez','Mitre 750','Avellaneda'),
+(102, 'Aguirre','Boedo 634','Bernal')
+
+
+INSERT INTO
+    `productos`(
+        `pNumero`,
+        `pNombre`,
+        `Precio`,
+        `Tamano`
+    )
+VALUES
+(1, 'Caramelos',1.5, 'chico'),
+(2,'Cigarrillos',45.89, 'mediano'),
+(3,'Gaseosas',15.80, 'grande')
+
+
+INSERT INTO
+   envios (`Numero`, `pNumero`, `Cantidad`)
+VALUES
+(100, 1, 500),
+(100, 2, 1500),
+(100, 3, 100),
+(101, 2, 55),
+(101, 3, 225),
+(102, 1, 600),
+(102, 3, 300)
+
+
+
+SELECT *
+FROM productos
+ORDER BY pNombre
+
+
+SELECT * 
+FROM proveedores
+WHERE Localidad = 'Quilmes'
+
+
+SELECT * 
+FROM envios 
+WHERE Cantidad BETWEEN 200 and 300
+
+
+SELECT COUNT(*)
+FROM envios
+
+SELECT * FROM envios LIMIT 0, 3
+
+
+SELECT P.Nombre, Pr.pNombre FROM proveedores P
+INNER JOIN productos Pr on P.Numero = E.Numero
+INNER JOIN envios E on Pr.pNumero = E.pNumero
+
+SELECT 	round(SUM(Pr.Precio*E.Cantidad),2) AS suma,
+FROM productos Pr INNER JOIN envios E on Pr.pNumero = E.pNumero
+--where pr.numero > 3
+
+DELETE 
+FROM PROVEEDORES P
+WHERE P.NUMERO not in (select E.numero from Envios E)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
