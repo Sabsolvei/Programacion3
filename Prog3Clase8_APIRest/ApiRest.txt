@@ -1,0 +1,15 @@
+Cliente
+1. Frontend  -->  La app emipeza cuando envia una peticion
+y termina cuando tiene que pedir datos a la base de datos
+
+2. PHP Server (el codigo de servidor es php, el del cliente no sabemos, ni nos interesa.)
+	Con PHP debemos poder: 
+	- Acceder a los datos con PDO (clases que dan conexion, instrucciones de pdo, y con las clases que hacen las consultas a la base de datos)
+	- Tendrà entidades, cada clase  con sus metodos (guardar, etc)
+	- Negocio: Necesidades funcionales. (reglas del negocio)
+	- Validacion
+	-API REST: Falta estandarizar la forma de comunicacion con el cliente, que se aclare si es por post o get, que para cada peticion no se deba cambiar la direccion. que no sea fisica sino logica. para esto se va a utilizar la API Rest
+			-Maneja rutas logicas, no fisicas.
+			-Toda la lib del apirest las maneja un framework. Las consultas son casi siempre las mismas
+			-
+			
